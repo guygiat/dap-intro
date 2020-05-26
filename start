@@ -46,7 +46,7 @@ trap finish EXIT
 export IMAGE_TAG=$TAG
 
 if [ "$PULL_ARGS" == "--pull" ]; then
-  docker pull registry2.itci.conjur.net/conjur-appliance:$IMAGE_TAG
+  docker pull registry2.itci.conjur.net/conjur-appliance@sha256:8fb509965e11f554f1c7f0afe1116001daec1165e98b8dffa0ee3394cee4fea2
   docker pull conjurinc/cli5
 fi
 
