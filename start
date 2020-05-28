@@ -29,7 +29,7 @@ exit
 }
 
 PULL_ARGS="--pull"
-TAG="5.0-stable"
+TAG="5.8.1-20200528210741-86516fa"
 CONFIG=""
 while true ; do
   case "$1" in
@@ -46,6 +46,7 @@ trap finish EXIT
 export IMAGE_TAG=$TAG
 
 if [ "$PULL_ARGS" == "--pull" ]; then
+  docker pull registry2.itci.conjur.net/conjur-appliance:$IMAGE_TAG
   docker pull conjurinc/cli5
 fi
 
