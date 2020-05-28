@@ -46,14 +46,13 @@ trap finish EXIT
 export IMAGE_TAG=$TAG
 
 if [ "$PULL_ARGS" == "--pull" ]; then
-  docker pull registry2.itci.conjur.net/conjur-appliance@sha256:8fb509965e11f554f1c7f0afe1116001daec1165e98b8dffa0ee3394cee4fea2
   docker pull conjurinc/cli5
 fi
 
 docker-compose up -d --no-deps conjur
 
-docker-compose exec conjur bash -c "
-  evoke configure master $CONFIG -h conjur-master.local -p MySecretP@ss1 --accept-eula demo
+docker-compose exec conjur bash -c " while :; do curl -k http://localhost/health; sleep 0.3; done & \
+evoke configure master $CONFIG -h conjur-master.local -p MySecretP@ss1 --accept-eula demo
 "
 
 docker-compose logs -f conjur
