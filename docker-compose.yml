@@ -20,8 +20,9 @@ services:
       dap_net:
         ipv4_address: 12.16.23.11
     ports:
-      - "444:443"
+      - "444:8443"
     expose:
+      - "8443"
       - "443"
       - "444"
       - "1999"
@@ -140,7 +141,7 @@ services:
         ipv4_address: 12.16.23.17
     working_dir:  /src/cli
     environment:
-      CONJUR_APPLIANCE_URL: https://conjur-master-1.mycompany.local
+      CONJUR_APPLIANCE_URL: https://conjur-master-1.mycompany.local:8443
       CONJUR_ACCOUNT: demo
       CONJUR_AUTHN_LOGIN: admin
     volumes:

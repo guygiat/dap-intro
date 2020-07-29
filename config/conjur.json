@@ -1,4 +1,7 @@
 {
+  "conjur": {
+    "ssl_port": 8443
+  },
   "postgresql": {
     "config": {
       "max_connections": 155,
